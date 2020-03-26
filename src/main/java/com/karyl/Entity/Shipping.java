@@ -1,4 +1,4 @@
-package com.karyl;
+package com.karyl.Entity;
 
 import java.util.ArrayList;
 
