@@ -1,8 +1,5 @@
 package com.karyl.Entity;
 
-
-import static com.karyl.Entity.Direction.*;
-
 public class Coord {
 
   private int x;

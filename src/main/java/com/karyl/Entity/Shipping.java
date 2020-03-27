@@ -1,13 +1,16 @@
 package com.karyl.Entity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Shipping {
-  private ArrayList<Boat> shipping;
+  private List<Boat> shipping;
 
-  public ArrayList<Boat> getShipping() { return shipping; }
+  public Shipping() {
+    this.shipping = new ArrayList<Boat>();
+  }
 
-  public Shipping(ArrayList<Boat> shipping) { this.shipping = shipping; }
+  public List<Boat> getShipping() { return shipping; }
 
   public void setShipping(ArrayList<Boat> shipping) { this.shipping = shipping; }
 

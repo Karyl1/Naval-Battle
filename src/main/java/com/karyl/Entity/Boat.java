@@ -47,8 +47,12 @@ public class Boat {
     }
   }
 
-  public List<Coord> getPosition() {
+  public List<Coord> getPositions() {
     return position;
+  }
+
+  public Coord getPosition(int index) {
+    return position.get(index);
   }
 
   public void setSize() {
