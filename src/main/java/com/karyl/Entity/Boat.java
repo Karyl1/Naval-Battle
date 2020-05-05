@@ -1,27 +1,24 @@
 package com.karyl.Entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Boat {
 
-  private Coord startCoord;
+  private Coord coord;
   private Model model;
   private Direction direction;
   private int size;
-  private List<Coord> position;
 
   public Boat(int x, int y, Model model, Direction direction) {
-    this.startCoord = new Coord(x, y);
+    this.coord = new Coord(x, y);
     this.model = model;
     this.direction = direction;
-    this.position = new ArrayList<Coord>();
 
     this.setSize();
-    this.setPosition();
+    this.coord.setPosition(this.coord, this.direction, this.size);
   }
 
-  public Coord getStartCoord() { return startCoord; }
+  public Coord getCoord() { return coord; }
 
   public Direction getDirection() { return direction; }
 
@@ -31,29 +28,12 @@ public class Boat {
 
   public void setModel(Model model) { this.model = model; }
 
-  public int getPositionX() { return startCoord.getX(); }
-
-  public int getPositionY() { return startCoord.getY(); }
-
-  public void setStartCoord(Coord startCoord) { this.startCoord = startCoord; }
-
-  private void setPosition() {
-    Coord nextCoordinate = new Coord(startCoord);
-    position.add(nextCoordinate);
-    for(int i=1;i<size;i++) {
-      nextCoordinate = new Coord(nextCoordinate);
-      nextCoordinate.setNextPosition(direction);
-      position.add(nextCoordinate);
-    }
-  }
-
-  public List<Coord> getPositions() {
-    return position;
-  }
-
   public Coord getPosition(int index) {
-    return position.get(index);
+    return coord.getPosition(index);
   }
+
+  public void setcoord(Coord coord) { this.coord = coord; }
+
 
   public void setSize() {
     switch (model) {

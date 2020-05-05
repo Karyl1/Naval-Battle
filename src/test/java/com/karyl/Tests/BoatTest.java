@@ -27,8 +27,8 @@ class BoatTest {
   @Test
   @DisplayName("Creation of new boat")
   void createBoat() {
-    Assertions.assertEquals(5, boat.getPositionX());
-    Assertions.assertEquals(7, boat.getPositionY());
+    Assertions.assertEquals(5, boat.getCoord().getX());
+    Assertions.assertEquals(7, boat.getCoord().getY());
     Assertions.assertEquals(Model.LONG, boat.getModel());
     Assertions.assertEquals(Direction.WEST, boat.getDirection());
     Assertions.assertEquals(5, boat.getSize());
@@ -46,7 +46,7 @@ class BoatTest {
   @Test
   @DisplayName("creation coordinate by Coord class")
   void createCoordinate2() {
-    Coord coord = new Coord(boat.getStartCoord());
+    Coord coord = new Coord(boat.getCoord());
     Assertions.assertEquals(5, coord.getX());
     Assertions.assertEquals(7, coord.getY());
   }
@@ -55,9 +55,9 @@ class BoatTest {
   @DisplayName("Test position coordinate collection")
   void positionCoordinate() {
     List coord = new ArrayList<Coord>();
-    coord.add(new Coord(boat.getStartCoord()));
-    for (int i = 0; i < 5; i++) {
-      coord.add(new Coord(boat.getPositionX() + i, boat.getPositionY()));
+    coord.add(new Coord(boat.getCoord()));
+    for (int i = 0; i < boat.getSize(); i++) {
+      coord.add(new Coord(boat.getCoord().getX() - i, boat.getCoord().getY()));
       Assertions.assertEquals(7, boat.getPosition(i).getY());
       Assertions.assertEquals(5 - i, boat.getPosition(i).getX());
     }

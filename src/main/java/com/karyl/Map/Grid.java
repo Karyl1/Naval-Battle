@@ -13,7 +13,7 @@ public class Grid {
 
   public boolean isOutOfMap(Boat boat) {
     Boolean isOutOfMap = false;
-    for(Coord pos : boat.getPositions()) {
+    for(Coord pos : boat.getCoord().getPositions()) {
       if(pos.getY() > maxHeight || pos.getY() < 0 || pos.getX() > maxWidth || pos.getX() < 0)
         isOutOfMap = true;
     }
