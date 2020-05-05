@@ -34,7 +34,6 @@ public class Boat {
 
   public void setcoord(Coord coord) { this.coord = coord; }
 
-
   public void setSize() {
     switch (model) {
       case TINY: this.size = 2;
@@ -49,7 +48,7 @@ public class Boat {
     }
   }
 
-    public int getSize() {
+  public int getSize() {
       return size;
     }
 

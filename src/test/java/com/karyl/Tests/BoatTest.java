@@ -6,6 +6,7 @@ import com.karyl.Entity.Coord;
 import com.karyl.Entity.Direction;
 import com.karyl.Entity.Model;
 import com.karyl.Map.Grid;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -35,20 +36,19 @@ class BoatTest {
   }
 
   @Test
-  @DisplayName("creation coordinate by x & y")
-  void createCoordinate() {
-    Coord coord = new Coord(2, 1);
-    Assertions.assertEquals(2, coord.getX());
-    Assertions.assertEquals(1, coord.getY());
-  }
-
-
-  @Test
-  @DisplayName("creation coordinate by Coord class")
-  void createCoordinate2() {
-    Coord coord = new Coord(boat.getCoord());
-    Assertions.assertEquals(5, coord.getX());
-    Assertions.assertEquals(7, coord.getY());
+  @DisplayName("Define the size and direction of the boats")
+  void setSizeDirectionBoat() {
+    Boat tinyBoat = new Boat(5, 2, Model.TINY, Direction.EAST);
+    Boat shortBoat = new Boat(5, 2, Model.SHORT, Direction.SOUTH);
+    Boat mediumBoat = new Boat(5, 2, Model.MEDIUM, Direction.NORTH);
+    Assertions.assertEquals(2, tinyBoat.getSize());
+    Assertions.assertEquals(3, shortBoat.getSize());
+    Assertions.assertEquals(4, mediumBoat.getSize());
+    Assertions.assertEquals(5, boat.getSize());
+    Assertions.assertEquals(Direction.EAST, tinyBoat.getDirection());
+    Assertions.assertEquals(Direction.SOUTH, shortBoat.getDirection());
+    Assertions.assertEquals(Direction.NORTH, mediumBoat.getDirection());
+    Assertions.assertEquals(Direction.WEST, boat.getDirection());
   }
 
   @Test

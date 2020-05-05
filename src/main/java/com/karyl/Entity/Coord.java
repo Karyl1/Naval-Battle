@@ -43,7 +43,6 @@ public class Coord {
     return this;
   }
 
-
   void setPosition(Coord startCoord, Direction direction, int size) {
     Coord nextCoordinate = new Coord(startCoord);
     position.add(nextCoordinate);
