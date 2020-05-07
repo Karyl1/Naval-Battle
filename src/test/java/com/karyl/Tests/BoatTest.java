@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-@DisplayName("Test boat class")
+@DisplayName("Test Boat class")
 class BoatTest {
 
   private Boat boat;

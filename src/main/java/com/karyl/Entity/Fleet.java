@@ -14,11 +14,13 @@ public class Fleet {
 
   public void setShipping(ArrayList<Boat> shipping) { this.fleet = shipping; }
 
-  public void addBoat(Boat boat) {
-    if(!isOnABoat(boat))
+  public boolean addBoat(Boat boat) {
+    if(!isOnABoat(boat)){
       fleet.add(boat);
+      return true;
+    }
     else
-        System.out.println("Vessel position error");
+      return false;
   }
 
   public void removeBoat(int index) { this.fleet.remove(index); }
@@ -27,8 +29,10 @@ public class Fleet {
     Boolean isOnBoat = false;
     for(int i=0; i<fleet.size(); i++) {
       for(Coord boatAdded : fleet.get(i).getPositions()) {
-        if(boatAdded.getY() == boat.getCoord().getY() && boatAdded.getX() == boat.getCoord().getX()) {
-          isOnBoat = true;
+        for(Coord boatCheck : boat.getPositions()){
+          if(boatAdded.getY() == boatCheck.getY() && boatAdded.getX() == boatCheck.getX()) {
+            isOnBoat = true;
+          }
         }
       }
     }
