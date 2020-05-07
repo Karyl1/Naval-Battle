@@ -1,5 +1,6 @@
 package com.karyl.Entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Boat {
@@ -8,6 +9,7 @@ public class Boat {
   private Model model;
   private Direction direction;
   private int size;
+  private List<Coord> positions;
 
   public Boat(int x, int y, Model model, Direction direction) {
     this.coord = new Coord(x, y);
@@ -15,7 +17,12 @@ public class Boat {
     this.direction = direction;
 
     this.setSize();
-    this.coord.setPosition(this.coord, this.direction, this.size);
+    this.positions = new ArrayList<Coord>();
+    this.coord.setPosition(this, this.coord, this.direction, this.size);
+  }
+
+  public void setPositionBoat(Coord coord) {
+    this.positions.add(coord);
   }
 
   public Coord getCoord() { return coord; }
@@ -29,7 +36,10 @@ public class Boat {
   public void setModel(Model model) { this.model = model; }
 
   public Coord getPosition(int index) {
-    return coord.getPosition(index);
+    return this.positions.get(index);
+  }
+  public List<Coord> getPositions() {
+    return this.positions;
   }
 
   public void setcoord(Coord coord) { this.coord = coord; }
